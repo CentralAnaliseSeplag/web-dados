@@ -1,0 +1,51 @@
+
+/* Navegação entre os dashboards */
+
+.pib-abas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 24px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #dbe5f2;
+}
+
+.pib-aba {
+  padding: 11px 16px;
+  background: #f1f5f9;
+  border: 1px solid #dbe5f2;
+  border-radius: 8px;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.pib-aba:hover {
+  background: #e8f0ff;
+  color: #2563eb;
+}
+
+.pib-aba.ativa {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: white;
+}
+
+.pib-conteudo-aba {
+  width: 100%;
+  min-width: 0;
+}
+
+@media (max-width: 600px) {
+  .pib-abas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pib-aba {
+    font-size: 12px;
+    padding: 10px;
+  }
+}
