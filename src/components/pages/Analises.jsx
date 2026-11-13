@@ -13,6 +13,7 @@ import {
 } from 'react-icons/fa'
 
 import { useAuth } from '../../context/AuthContext'
+import { aplicacaoInstitucional } from '../../config/integracoes'
 
 import './Analises.css'
 
@@ -62,7 +63,24 @@ const Analises = () => {
         icon: <FaChartLine />
       }
     ]
-  : [])
+  : []),
+
+    ...(aplicacaoInstitucional.ativa && (isAdmin || isAnalista)
+      ? [
+          {
+            id: 'central-previsoes-orcamentarias',
+            titulo: aplicacaoInstitucional.titulo,
+            descricao:
+              'Plataforma institucional de previsao de receitas e despesas orcamentarias do Estado de Pernambuco.',
+            categoria: 'Previsoes orcamentarias',
+            ferramenta: 'Aplicacao institucional',
+            palavrasChave:
+              'central previsoes orcamentarias receitas despesas pernambuco',
+            rota: '/Dados/Institucional',
+            icon: <FaChartLine />
+          }
+        ]
+      : [])
   ]
 
   const normalizarTexto = (texto = '') =>
