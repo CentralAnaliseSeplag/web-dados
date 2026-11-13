@@ -36,10 +36,17 @@ jobs:
       - name: Instalar dependências
         run: npm ci
 
+
       - name: Compilar projeto
         env:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
+
+          VITE_INSTITUCIONAL_ATIVA: ${{ vars.VITE_INSTITUCIONAL_ATIVA }}
+          VITE_INSTITUCIONAL_MODO: ${{ vars.VITE_INSTITUCIONAL_MODO }}
+          VITE_INSTITUCIONAL_TITULO: ${{ vars.VITE_INSTITUCIONAL_TITULO }}
+          VITE_INSTITUCIONAL_URL: ${{ vars.VITE_INSTITUCIONAL_URL }}
+
         run: npm run build
 
       - name: Configurar GitHub Pages
